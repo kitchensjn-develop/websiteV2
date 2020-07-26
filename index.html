@@ -60,6 +60,7 @@
         }
         p {
             margin-bottom: 10px;
+            font-size: 20px;
         }
         #background {
             position: absolute;
@@ -92,7 +93,7 @@
         .home .textbox .desc {
             color: #BBBBBB;
             margin-bottom: 25px;
-            font-size: 20px;
+            font-size: 25px;
         }
         .home .textbox .links a {
             padding: 0px 10px;
@@ -117,11 +118,12 @@
             display: inline-block;
             border-radius: 5px;
             text-align: center;
-            background-color: #333333
+            background-color: #333333;
+            margin: 2px 0px;
         }
         .page .cat .background .skill {
             color: #FFFFFF;
-            margin: 5px 5px;
+            margin: 5px;
         }
         
 
@@ -156,7 +158,7 @@
             display: none;
             color: #BBBBBB;
             text-align: center;
-            padding: 14px 16px;
+            padding: 17px 16px;
             text-decoration: none;
             font-size: 20px;
         }
@@ -169,7 +171,7 @@
             display: block;
             color: #BBBBBB;
             text-align: center;
-            padding: 14px 16px;
+            padding: 17px 16px;
             text-decoration: none;
             font-size: 20px;
         }
@@ -227,8 +229,8 @@
 
 <body>
     <div class="topnav" id="myTopnav">
-      <a class="menuPage" id="Logo" href="/" style="padding:7px 16px;">
-        <img src="JK_logo.png" alt="JK_logo" style="height:39px;">
+      <a class="menuPage" id="Logo" href="/" style="padding:9px 16px 5px 16px;">
+        <img src="JK_logo.png" alt="JK_logo" style="height:38px;">
       </a>
       <a class="menuPage activePage" id="Home" href="javascript:void(0);" onclick="goToHome()">Home</a>
       <a class="menuPage" id="Projects" href="javascript:void(0);" onclick="goToProjects()">Projects</a>
@@ -260,7 +262,7 @@
     <div class="page">
         <p>Hi, my name is James. I recently graduated from Warren Wilson College in Asheville, North Carolina, earning a BS in Biology and a BS in Chemistry. Throughout college and high school, I developed interests and skills in conservation genetics, human genomics, and statistical modeling. I enjoy creative programming and data visualizations, including developing applications in Python and Shiny.</p>
         <p>In January 2020, I moved to from Virginia to Pomona, California. I am excited to explore the West Coast!</p>
-        <div class="cat" style="text-align: center;">
+        <div class="cat" style="text-align: center; margin-top: 50px;">
             <div class="background">
                 <p class="skill">Python</p>
             </div>
@@ -311,6 +313,9 @@
                 <p class="skill">NMR</p>
             </div>
         </div>
+    </div>
+    <div style="height: 1000px;">
+      
     </div>
 </body>
 
