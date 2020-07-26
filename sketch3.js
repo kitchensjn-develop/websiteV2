@@ -3,10 +3,10 @@ let canvasHeight;
 function setup() {
   if (windowHeight < 600) {
     canvasHeight = 600;
-    var myCanvas = createCanvas(windowWidth-15, canvasHeight);
+    var myCanvas = createCanvas(windowWidth, canvasHeight);
   } else {
     canvasHeight = windowHeight;
-    var myCanvas = createCanvas(windowWidth-15, windowHeight); 
+    var myCanvas = createCanvas(windowWidth, windowHeight); 
   }
   myCanvas.parent("background");
 }
@@ -14,10 +14,10 @@ function setup() {
 function windowResized() {
   if (windowHeight < 600) {
     canvasHeight = 600;
-    resizeCanvas(windowWidth-15, canvasHeight);
+    resizeCanvas(windowWidth, canvasHeight);
   } else {
     canvasHeight = windowHeight;
-    resizeCanvas(windowWidth-15, windowHeight); 
+    resizeCanvas(windowWidth, windowHeight); 
   }
 }
 
