@@ -1,24 +1,20 @@
 let canvasHeight;
 
 function setup() {
-  if (windowHeight < 600) {
-    canvasHeight = 600;
-    var myCanvas = createCanvas(windowWidth, canvasHeight);
-  } else {
-    canvasHeight = windowHeight;
-    var myCanvas = createCanvas(windowWidth, windowHeight); 
-  }
+  var canvasDiv = document.getElementById('background');
+  var divWidth = canvasDiv.offsetWidth;
+  var divHeight = canvasDiv.offsetHeight;
+  var myCanvas = createCanvas(divWidth,divHeight);
   myCanvas.parent("background");
+  canvasHeight = divHeight;
 }
 
 function windowResized() {
-  if (windowHeight < 600) {
-    canvasHeight = 600;
-    resizeCanvas(windowWidth, canvasHeight);
-  } else {
-    canvasHeight = windowHeight;
-    resizeCanvas(windowWidth, windowHeight); 
-  }
+  var canvasDiv = document.getElementById('background');
+  var divWidth = canvasDiv.offsetWidth;
+  var divHeight = canvasDiv.offsetHeight;
+  resizeCanvas(divWidth,divHeight);
+  canvasHeight = divHeight;
 }
 
 function draw() {
