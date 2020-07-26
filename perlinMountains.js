@@ -48,8 +48,8 @@ function draw() {
   vertex(windowWidth, canvasHeight);
   endShape();
   
-  fill(150,150,150,255);
-  stroke(150);
+  fill(187,187,187,255);
+  stroke(187);
   beginShape();
   vertex(0, canvasHeight);
   for (var x = 0; x < width; x++) {
