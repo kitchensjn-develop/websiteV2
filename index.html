@@ -82,12 +82,23 @@
           document.getElementById("Logo").classList.remove("inactiveLink");
           $('html,body').animate({scrollTop: $("#home").offset().top},'slow');
       }
-      
       function goToBio(id){
           var x = document.getElementById("myTopnav");
           x.className = "topnav";
           document.getElementById("Logo").classList.remove("inactiveLink");
           $('html,body').animate({scrollTop: $("#bio").offset().top},'slow');
+      }
+      function goToProjects(id){
+          var x = document.getElementById("myTopnav");
+          x.className = "topnav";
+          document.getElementById("Logo").classList.remove("inactiveLink");
+          $('html,body').animate({scrollTop: $("#projects").offset().top},'slow');
+      }
+      function goToWork(id){
+          var x = document.getElementById("myTopnav");
+          x.className = "topnav";
+          document.getElementById("Logo").classList.remove("inactiveLink");
+          $('html,body').animate({scrollTop: $("#work").offset().top},'slow');
       }
     </script>
     
