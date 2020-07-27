@@ -11,44 +11,11 @@
     <script src="https://kit.fontawesome.com/b53b88607b.js" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="perlinMountains.js"></script>
     
-    <script>
-      function hamburger() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-          document.getElementById("Logo").classList.add("inactiveLink");
-        } else {
-          x.className = "topnav";
-          document.getElementById("Logo").classList.remove("inactiveLink");
-        }
-        var content = document.getElementById("galleryContent");
-        if (content) {
-          if (content.style.top === "53px") {
-            content.style.top = ((document.getElementById("myTopnav").querySelectorAll("a").length - 1) * 53 + 3).toString() + "px";
-          } else {
-            content.style.top = "53px";
-          }
-        }
-      }
-      window.addEventListener('resize', function(event){
-        var x = document.getElementById("myTopnav");
-        var content = document.getElementById("galleryContent");
-        if (content) {
-          if (window.innerWidth > 768) {
-            content.style.top = "53px";
-            document.getElementById("Logo").classList.remove("inactiveLink");
-          } else if (x.className === "topnav") {
-            content.style.top = "53px";
-            document.getElementById("Logo").classList.remove("inactiveLink");
-          } else {
-            content.style.top = ((document.getElementById("myTopnav").querySelectorAll("a").length - 1) * 53 + 3).toString() + "px";
-            document.getElementById("Logo").classList.add("inactiveLink");
-          }
-        };
-      });
-    </script>
-    
     <style>
+        .unstick {
+            display: none;
+        }
+        
         * {
             margin:0;
             padding:0;
@@ -234,10 +201,10 @@
         <img src="JK_logo.png" alt="JK_logo" style="height:38px;">
       </a>
       <a class="menuPage activePage" id="Home" href="javascript:void(0);" onclick="goToHome()">Home</a>
+      <a class="menuPage" id="Bio" href="javascript:void(0);" onclick="goToProjects()">Bio</a>
       <a class="menuPage" id="Projects" href="javascript:void(0);" onclick="goToProjects()">Projects</a>
       <a class="menuPage" id="Work" href="javascript:void(0);" onclick="goToWork()">Work</a>
-      <a class="menuPage" id="Contact" href="javascript:void(0);" onclick="goToContact()">Contact</a>
-      <a class="menuPage" id="NationalParksGallery" href="national-parks-gallery">National Parks Gallery</a>
+      <!--<a class="menuPage" id="NationalParksGallery" href="national-parks-gallery">National Parks Gallery</a>-->
       <a href="javascript:void(0);" class="menuBurger icon" onclick="hamburger()">
         <i class="fa fa-bars"></i>
       </a>
@@ -260,7 +227,7 @@
             </div>
         </div>
     </div>
-    <div class="page">
+    <div id="bio" class="page">
         <p>Hi, my name is James. I recently graduated from Warren Wilson College in Asheville, North Carolina, earning a BS in Biology and a BS in Chemistry. Throughout college and high school, I developed interests and skills in conservation genetics, human genomics, and statistical modeling. I enjoy creative programming and data visualizations, including developing applications in Python and Shiny.</p>
         <p>In January 2020, I moved to from Virginia to Pomona, California. I am excited to explore the West Coast!</p>
         <div class="cat" style="text-align: center; margin-top: 50px;">
@@ -300,7 +267,7 @@
                 <p class="skill">GRASS GIS</p>
             </div>
         </div>
-        <div class="cat" style="margin-top: 5px;">
+        <div class="cat" style="margin-top: 5px; margin-bottom: 20px;">
             <div class="background">
                 <p class="skill">DNA Extraction</p>
             </div>
@@ -315,9 +282,65 @@
             </div>
         </div>
     </div>
-    <div style="height: 1000px; background-color: #BBBBBB;">
+    <div id="contact" class="unstick" style="position: fixed; bottom: 0px; width: 100%; height: 57px; background-color: #333333; text-align: center; color: #BBBBBB;">
+        <p style="display: inline-block; padding: 17px 20px;">Pomona, California</p>
+        <p style="display: inline-block; padding: 17px 20px;">|</p>
+        <p style="display: inline-block; padding: 17px 20px;">kitchensjn@gmail.com</p>
+        <p style="display: inline-block; padding: 17px 20px;">|</p>
+        <p style="display: inline-block; padding: 17px 20px;">(804) 572-3197</p>
+    </div>
+    <div style="height: 100%; background-color: #BBBBBB;">
       
+    </div>
+    <div style="height: 100%; background-color: #FFFFFF;">
     </div>
 </body>
 
 </html>
+
+<script>
+  function hamburger() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+      document.getElementById("Logo").classList.add("inactiveLink");
+    } else {
+      x.className = "topnav";
+      document.getElementById("Logo").classList.remove("inactiveLink");
+    }
+    var content = document.getElementById("galleryContent");
+    if (content) {
+      if (content.style.top === "53px") {
+        content.style.top = ((document.getElementById("myTopnav").querySelectorAll("a").length - 1) * 53 + 3).toString() + "px";
+      } else {
+        content.style.top = "53px";
+      }
+    }
+  }
+  window.addEventListener('resize', function(event){
+    var x = document.getElementById("myTopnav");
+    var content = document.getElementById("galleryContent");
+    if (content) {
+      if (window.innerWidth > 768) {
+        content.style.top = "53px";
+        document.getElementById("Logo").classList.remove("inactiveLink");
+      } else if (x.className === "topnav") {
+        content.style.top = "53px";
+        document.getElementById("Logo").classList.remove("inactiveLink");
+      } else {
+        content.style.top = ((document.getElementById("myTopnav").querySelectorAll("a").length - 1) * 53 + 3).toString() + "px";
+        document.getElementById("Logo").classList.add("inactiveLink");
+      }
+    };
+  });
+  
+  sticky = document.getElementById("bio").offsetTop;
+  
+  window.addEventListener('scroll', function(event){
+    if (window.pageYOffset >= sticky*5/7) {
+      document.getElementById("contact").classList.remove("unstick");
+    } else {
+      document.getElementById("contact").classList.add("unstick");
+    }
+  });
+</script>
