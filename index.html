@@ -10,6 +10,7 @@
     <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <script src="https://kit.fontawesome.com/b53b88607b.js" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="perlinMountains.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     
     <script>
       function hamburger() {
@@ -53,7 +54,41 @@
         } else {
           document.getElementById("contact").classList.add("unstick");
         }
+        if(window.pageYOffset >= 0){
+          $(".menuPage").removeClass("activePage");
+          var activePage = document.getElementById("Home");
+          activePage.classList.add("activePage");
+        }
+        if(window.pageYOffset > document.getElementById("bio").offsetTop - 57) {
+          $(".menuPage").removeClass("activePage");
+          var activePage = document.getElementById("Bio");
+          activePage.classList.add("activePage");
+        }
+        if(window.pageYOffset > document.getElementById("projects").offsetTop - 57) {
+          $(".menuPage").removeClass("activePage");
+          var activePage = document.getElementById("Projects");
+          activePage.classList.add("activePage");
+        }
+        if(window.pageYOffset > document.getElementById("work").offsetTop - 57) {
+          $(".menuPage").removeClass("activePage");
+          var activePage = document.getElementById("Work");
+          activePage.classList.add("activePage");
+        }
       });
+      
+      function goToHome(id){
+          var x = document.getElementById("myTopnav");
+          x.className = "topnav";
+          document.getElementById("Logo").classList.remove("inactiveLink");
+          $('html,body').animate({scrollTop: $("#home").offset().top},'slow');
+      }
+      
+      function goToBio(id){
+          var x = document.getElementById("myTopnav");
+          x.className = "topnav";
+          document.getElementById("Logo").classList.remove("inactiveLink");
+          $('html,body').animate({scrollTop: $("#bio").offset().top},'slow');
+      }
     </script>
     
     <style>
@@ -117,7 +152,7 @@
         .page {
             color: #333333;
             text-align: justify;
-            padding: 75px 10% 150px 10%;
+            padding: 100px 10% 150px 10%;
         }
         .page .cat {
             text-align: center;
@@ -261,7 +296,7 @@
         <img src="JK_logo.png" alt="JK_logo" style="height:38px;">
       </a>
       <a class="menuPage activePage" id="Home" href="javascript:void(0);" onclick="goToHome()">Home</a>
-      <a class="menuPage" id="Bio" href="javascript:void(0);" onclick="goToProjects()">Bio</a>
+      <a class="menuPage" id="Bio" href="javascript:void(0);" onclick="goToBio()">Bio</a>
       <a class="menuPage" id="Projects" href="javascript:void(0);" onclick="goToProjects()">Projects</a>
       <a class="menuPage" id="Work" href="javascript:void(0);" onclick="goToWork()">Work</a>
       <!--<a class="menuPage" id="NationalParksGallery" href="national-parks-gallery">National Parks Gallery</a>-->
@@ -270,7 +305,7 @@
       </a>
     </div>
     <div id="background"></div>
-    <div class="home">
+    <div id="home" class="home">
         <div class="textbox">
             <h1 class="title">James Kitchens</h1>
             <p class="desc">Environmental Data Scientist & Creative Programmer</p>
@@ -349,10 +384,10 @@
         <p class="info hide">|</p>
         <p class="info hide">(804) 572-3197</p>
     </div>
-    <div style="height: 100%; background-color: #BBBBBB;">
+    <div id="projects" style="height: 100%; background-color: #BBBBBB;">
       
     </div>
-    <div style="height: 100%; background-color: #FFFFFF;">
+    <div id="work" style="height: 100%; background-color: #FFFFFF;">
     </div>
 </body>
 
