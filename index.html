@@ -100,6 +100,7 @@
           document.getElementById("Logo").classList.remove("inactiveLink");
           $('html,body').animate({scrollTop: $("#work").offset().top},'slow');
       }
+      
     </script>
     
     <style>
@@ -188,6 +189,7 @@
             background-color: #333333;
             text-align: center;
             color: #BBBBBB;
+            z-index: 1000;
         }
         .contactBar .info{
             display: inline-block;
@@ -195,6 +197,70 @@
         }
         .unstick {
             display: none;
+        }
+        .projects .card {
+            background-color: #333333;
+            height: 200px;
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px 0px;
+            cursor: pointer;
+        }
+        .projects .card .pic {
+            position: relative;
+            z-index: 10;
+            background-color: #FFFFFF;
+            height: 100%;
+            width: 75%;
+            overflow: hidden;
+            transition: width 1s;
+        }
+        .projects .card .picLeft {
+            border-radius: 5px 0px 0px 5px;
+            float: left;
+        }
+        .projects .card .picRight {
+          border-radius: 0px 5px 5px 0px;
+            float: right;
+        }
+        .projects .card:hover .pic {
+            width: 25%;
+        }
+        .projects .card .desc {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width:25%;
+            height: 100%;
+        }
+        .projects .card:hover .desc {
+            width: 75%;
+        }
+        .projects .card .descRight {
+            margin-left: 75%;
+        }
+        .projects .card:hover .descRight {
+            margin-left: 25%;
+        }
+        .projects .card .descLeft {
+            margin-right: 75%;
+        }
+        .projects .card:hover .descLeft {
+            margin-right: 25%;
+        }
+        .projects .card .desc .brief {
+            text-align: justify;
+            color: #BBBBBB;
+            display: none;
+        }
+        .projects .card:hover .desc .brief {
+            display: block;
+        }
+        .projects .card .desc .name {
+            color: #FFFFFF;
+        }
+        .projects .card:hover .desc .name {
+            margin-bottom: 10px;
         }
         
 
@@ -395,8 +461,29 @@
         <p class="info hide">|</p>
         <p class="info hide">(804) 572-3197</p>
     </div>
-    <div id="projects" style="height: 100%; background-color: #BBBBBB;">
-      
+    <div id="projects" class="projects" style="height: 100%; background-color: #BBBBBB; padding: 10%;">
+        <div class="card">
+            <div class="pic picLeft">
+                <img src="test.jpg" alt="TopoTableImg">
+            </div>
+            <div class="desc descRight">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h1 class="name">TopoTable</h1>
+                    <p class="brief">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat. Vestibulum commodo enim metus, vitae faucibus urna consequat non. Aliquam sed sapien id risus vulputate sollicitudin. Phasellus pellentesque condimentum risus ac dapibus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic picRight">
+                <img src="test.jpg" alt="TopoTableImg">
+            </div>
+            <div class="desc descLeft">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h1 class="name">TopoTable</h1>
+                    <p class="brief">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat. Vestibulum commodo enim metus, vitae faucibus urna consequat non. Aliquam sed sapien id risus vulputate sollicitudin. Phasellus pellentesque condimentum risus ac dapibus.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="work" style="height: 100%; background-color: #FFFFFF;">
     </div>
