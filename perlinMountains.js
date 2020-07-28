@@ -18,6 +18,7 @@ function windowResized() {
 }
 
 function draw() {
+  windowResized();
   background(51);
 
   fill(75,75,75,255);
