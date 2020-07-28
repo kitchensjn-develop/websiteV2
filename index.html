@@ -136,7 +136,6 @@
             left:50%;
             top:40%;
             transform: translate(-50%, -50%);
-            /*font-family: monaco, Consolas, "Lucida Console", monospace;*/
             color: #FFFFFF;
             text-align: center;
         }
@@ -205,6 +204,8 @@
             border-radius: 5px;
             margin: 10px 0px;
             cursor: pointer;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
         }
         .projects .card .pic {
             position: relative;
@@ -214,14 +215,18 @@
             width: 75%;
             overflow: hidden;
             transition: width 1s;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
         }
         .projects .card .picLeft {
             border-radius: 5px 0px 0px 5px;
             float: left;
+            direction: ltr;
         }
         .projects .card .picRight {
-          border-radius: 0px 5px 5px 0px;
+            border-radius: 0px 5px 5px 0px;
             float: right;
+            direction: rtl;
         }
         .projects .card:hover .pic {
             width: 25%;
@@ -232,6 +237,8 @@
             text-align: center;
             width:25%;
             height: 100%;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
         }
         .projects .card:hover .desc {
             width: 75%;
@@ -474,10 +481,17 @@
             </div>
         </div>
         <div class="card">
-            <div class="pic picRight">
-                <img src="test.jpg" alt="TopoTableImg">
-            </div>
+            <img class="pic picRight" src="test.jpg" alt="TopoTableImg">
             <div class="desc descLeft">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h1 class="name">TopoTable</h1>
+                    <p class="brief">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat. Vestibulum commodo enim metus, vitae faucibus urna consequat non. Aliquam sed sapien id risus vulputate sollicitudin. Phasellus pellentesque condimentum risus ac dapibus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img class="pic picLeft" src="test.jpg" alt="TopoTableImg">
+            <div class="desc descRight">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
                     <h1 class="name">TopoTable</h1>
                     <p class="brief">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat. Vestibulum commodo enim metus, vitae faucibus urna consequat non. Aliquam sed sapien id risus vulputate sollicitudin. Phasellus pellentesque condimentum risus ac dapibus.</p>
