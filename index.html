@@ -11,6 +11,8 @@
     <script src="https://kit.fontawesome.com/b53b88607b.js" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="perlinMountains.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
     <script>
       function hamburger() {
@@ -197,77 +199,41 @@
         .unstick {
             display: none;
         }
+        .projects {
+            background-color: #BBBBBB;
+            padding: 75px 10% 75px 10%;
+            height: auto;
+            position: relative;
+        }
         .projects .card {
-            background-color: #333333;
             height: 200px;
-            width: 100%;
             border-radius: 5px;
-            margin: 10px 0px;
-            cursor: pointer;
+            margin: 10px 10px;
             /*-webkit-transform-style: preserve-3d;
             -webkit-backface-visibility: hidden;*/
         }
-        .projects .card .pic {
-            position: relative;
-            z-index: 10;
-            background-color: #FFFFFF;
-            height: 100%;
-            width: 75%;
-            overflow: hidden;
-            transition: width 1s;
-            /*-webkit-transform-style: preserve-3d;
-            -webkit-backface-visibility: hidden;*/
-        }
-        .projects .card .picLeft {
-            border-radius: 5px 0px 0px 5px;
-            float: left;
-            direction: ltr;
-        }
-        .projects .card .picRight {
-            border-radius: 0px 5px 5px 0px;
-            float: right;
-            direction: rtl;
-        }
-        .projects .card:hover .pic {
-            width: 25%;
-        }
-        .projects .card .desc {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            width:25%;
-            height: 100%;
-            /*-webkit-transform-style: preserve-3d;
-            -webkit-backface-visibility: hidden;*/
-        }
-        .projects .card:hover .desc {
-            width: 75%;
-        }
-        .projects .card .descRight {
-            margin-left: 75%;
-        }
-        .projects .card:hover .descRight {
-            margin-left: 25%;
-        }
-        .projects .card .descLeft {
-            margin-right: 75%;
-        }
-        .projects .card:hover .descLeft {
-            margin-right: 25%;
-        }
-        .projects .card .desc .brief {
+        .projects .card .overlay .content .desc{
+            color: #FFFFFF;
             text-align: justify;
-            color: #BBBBBB;
             display: none;
         }
-        .projects .card:hover .desc .brief {
+        .projects .card .overlay {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(51,51,51,0.5);
+          border-radius: 5px;
+        }
+        .projects .card:hover .overlay {
+            background-color: rgba(51,51,51,1);
+        }
+        .projects .card:hover .overlay .content .desc{
             display: block;
+            margin: 0px;
+            color: #BBBBBB;
         }
-        .projects .card .desc .name {
-            color: #FFFFFF;
-        }
-        .projects .card:hover .desc .name {
-            margin-bottom: 10px;
+        .projects .card:hover .overlay .content .name{
+            display: none;
         }
         
 
@@ -342,14 +308,16 @@
             display: none;
         }
         @media screen and (max-width: 868px) {
-            .topnav .menuPage:not(:first-child) {display: none;}
+            .topnav .menuPage:not(:first-child) {
+                display: none;
+            }
             .topnav .icon {
                 float: right;
                 display: block;
             }
-        }
-        @media screen and (max-width: 868px) {
-            .topnav.responsive {position: fixed;}
+            .topnav.responsive {
+                position: fixed;
+            }
             .topnav.responsive .icon {
                 position: fixed;
                 right: 0;
@@ -367,7 +335,7 @@
             .topnav.responsive {
                 border-bottom: 3px solid #333333;
             }
-            .contactBar .hide {
+            .contactBar .infoHide {
                 display: none;
             }
         }
@@ -462,13 +430,58 @@
         </div>
     </div>
     <div id="contact" class="contactBar unstick">
-        <p class="info hide">Pomona, California</p>
-        <p class="info hide">|</p>
+        <p class="info infoHide">Pomona, California</p>
+        <p class="info infoHide">|</p>
         <p class="info">kitchensjn@gmail.com</p>
-        <p class="info hide">|</p>
-        <p class="info hide">(804) 572-3197</p>
+        <p class="info infoHide">|</p>
+        <p class="info infoHide">(804) 572-3197</p>
     </div>
-    <div id="projects" class="projects" style="height: 100%; background-color: #BBBBBB; padding: 10%;">
+    <div id="projects" class="projects">
+        <div class="col-lg-6" style="padding: 0px;">
+          <div class="card" style="background-image: url('test.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">TopoTable</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" style="padding: 0px;">
+          <div class="card" style="background-image: url('test.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">TopoTable</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" style="padding: 0px;">
+          <div class="card" style="background-image: url('test.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">TopoTable</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" style="padding: 0px 0px 25px 0px;">
+          <div class="card" style="background-image: url('test.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">TopoTable</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper ex ipsum, nec posuere diam semper non. Praesent eget nisi vitae urna pellentesque egestas id sit amet justo. Maecenas euismod bibendum placerat.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <h3 style="text-align: center;">More Projects</h3>
+        
+        
+        
+        <!--
         <div class="card">
             <div class="pic picLeft">
                 <img src="test.jpg" alt="TopoTableImg">
@@ -481,7 +494,9 @@
             </div>
         </div>
         <div class="card">
-            <img class="pic picRight" src="test.jpg" alt="TopoTableImg">
+            <div class="pic picRight">
+                <img src="test.jpg" alt="TopoTableImg">
+            </div>
             <div class="desc descLeft">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
                     <h1 class="name">TopoTable</h1>
@@ -490,7 +505,9 @@
             </div>
         </div>
         <div class="card">
-            <img class="pic picLeft" src="test.jpg" alt="TopoTableImg">
+            <div class="pic picLeft">
+                <img src="test.jpg" alt="TopoTableImg">
+            </div>
             <div class="desc descRight">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
                     <h1 class="name">TopoTable</h1>
@@ -498,6 +515,7 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
     <div id="work" style="height: 100%; background-color: #FFFFFF;">
     </div>
