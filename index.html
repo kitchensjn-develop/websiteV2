@@ -273,7 +273,9 @@
         .row {
             display: flex;
             flex-wrap: wrap;
-            padding: 0px 0px;
+            padding: 0px 0px 0px 2%;
+            width: 100%;
+            margin: 0px;
         }
         .column {
             flex: 24.5%;
@@ -293,6 +295,9 @@
             flex: 49.5%;
             max-width: 49.5%;
           }
+          .row {
+            padding: 0px;
+          }
         }
         
         /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -300,6 +305,9 @@
           .column {
             flex: 100%;
             max-width: 100%;
+          }
+          .row {
+            padding: 0px;
           }
         }
         
@@ -596,7 +604,7 @@
     </div>
     <div id="travel" style="text-align: center; height: auto; position: relative; padding: 50px 10% 75px 10%; background-color: #FFFFFF;">
         <h1 style="text-align: center;">Travel</h1>
-        <div class="row" style="width: 100%; margin: 0px; padding-left: 2%;">
+        <div class="row" style="">
           <div class="column">
             <img src="Arches/DSC_0007-1.jpg" style="width:100%">
             <img src="Arches/DSC_0008-1.jpg" style="width:100%">
