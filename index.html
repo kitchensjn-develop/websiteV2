@@ -103,6 +103,28 @@
           $('html,body').animate({scrollTop: $("#work").offset().top},'slow');
       }
       
+      function projectArrow(id) {
+          var x = document.getElementById("arrow");
+          if (x.className == "fas fa-chevron-down arrow") {
+              x.classList.add("flip");
+          } else {
+              x.className = "fas fa-chevron-down arrow";
+          }
+          var p = document.querySelectorAll(".hideProject");
+          var q = document.querySelectorAll(".unhideProject");
+          var j;
+          for (j = 0; j < p.length; j++) {
+              p[j].className = "col-md-6 col-lg-6 unhideProject";
+          }
+          var k;
+          for (k = 0; k < q.length; k++) {
+              q[k].className = "col-md-6 col-lg-6 hideProject";
+          }
+          if (q.length > 0) {
+              $('html,body').animate({scrollTop: $("#projects").offset().top},'slow'); 
+          }
+      }
+      
     </script>
     
     <style>
@@ -161,9 +183,6 @@
         }
         .link:hover {
             color: #FFFFFF;
-        }
-        .arrow {
-            color: #333333;
         }
         .page {
             color: #333333;
@@ -238,8 +257,19 @@
         .projects .card:hover .overlay .content .name{
             display: none;
         }
+        .hideProject {
+            display: none;
+        }
+        .unhideProject {
+            display: block;
+        }
+        .arrow {
+            color: #333333;
+        }
+        .flip {
+            transform: rotate(180deg);
+        }
         
-
         .topnav {
             position: fixed;
             top: 0;
@@ -481,9 +511,49 @@
             </div>
           </div>
         </div>
+        <div class="col-md-6 col-lg-6 hideProject" style="padding: 0px 0px 0px 0px;">
+          <div class="card" style="background-image: url('TopoTableEverest.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">The TopoTable Project</h2>
+                    <p class="desc">Developing a dynamic 3D topographic relief table through the use of moveable pillars, allowing the table to display any number of regions from around the world.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 hideProject" style="padding: 0px 0px 0px 0px;">
+          <div class="card" style="background-image: url('TopoTableEverest.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">The TopoTable Project</h2>
+                    <p class="desc">Developing a dynamic 3D topographic relief table through the use of moveable pillars, allowing the table to display any number of regions from around the world.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 hideProject" style="padding: 0px 0px 0px 0px;">
+          <div class="card" style="background-image: url('TopoTableEverest.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">The TopoTable Project</h2>
+                    <p class="desc">Developing a dynamic 3D topographic relief table through the use of moveable pillars, allowing the table to display any number of regions from around the world.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 hideProject" style="padding: 0px 0px 0px 0px;">
+          <div class="card" style="background-image: url('TopoTableEverest.jpg');">
+            <div class="overlay">
+                <div class="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                    <h2 class="name" style="color: #FFFFFF; text-align: center;">The TopoTable Project</h2>
+                    <p class="desc">Developing a dynamic 3D topographic relief table through the use of moveable pillars, allowing the table to display any number of regions from around the world.</p>
+                </div>
+            </div>
+          </div>
+        </div>
         <div style="width: 100%; text-align: center;">
-            <a target="_blank" href="https://www.linkedin.com/in/james-kitchens-668825b2/" style="font-size: 2em;">
-                <i class="fas fa-chevron-down arrow"></i>
+            <a style="font-size: 2em;" id="ProjectArrow" href="javascript:void(0);" onclick="projectArrow()">
+                <i class="fas fa-chevron-down arrow" id="arrow"></i>
             </a>
         </div>
         <!--<h3 style="text-align: center;">More Projects</h3>-->
