@@ -71,9 +71,9 @@
           var activePage = document.getElementById("Projects");
           activePage.classList.add("activePage");
         }
-        if(window.pageYOffset > document.getElementById("work").offsetTop - 57) {
+        if(window.pageYOffset > document.getElementById("travel").offsetTop - 57) {
           $(".menuPage").removeClass("activePage");
-          var activePage = document.getElementById("Work");
+          var activePage = document.getElementById("Travel");
           activePage.classList.add("activePage");
         }
       });
@@ -96,11 +96,11 @@
           document.getElementById("Logo").classList.remove("inactiveLink");
           $('html,body').animate({scrollTop: $("#projects").offset().top},'slow');
       }
-      function goToWork(id){
+      function goToTravel(id){
           var x = document.getElementById("myTopnav");
           x.className = "topnav";
           document.getElementById("Logo").classList.remove("inactiveLink");
-          $('html,body').animate({scrollTop: $("#work").offset().top},'slow');
+          $('html,body').animate({scrollTop: $("#travel").offset().top},'slow');
       }
       
       function projectArrow(id) {
@@ -187,7 +187,7 @@
         .page {
             color: #333333;
             text-align: justify;
-            padding: 50px 10% 75px 10%;
+            padding: 75px 10% 75px 10%;
         }
         .page .cat {
             text-align: center;
@@ -268,6 +268,38 @@
         }
         .flip {
             transform: rotate(180deg);
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px 0px;
+        }
+        .column {
+            flex: 24.5%;
+            max-width: 24.5%;
+            padding: 0px 4px;
+        }
+        
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        @media screen and (max-width: 800px) {
+          .column {
+            flex: 49.5%;
+            max-width: 49.5%;
+          }
+        }
+        
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .column {
+            flex: 100%;
+            max-width: 100%;
+          }
         }
         
         .topnav {
@@ -383,7 +415,7 @@
       <a class="menuPage activePage" id="Home" href="javascript:void(0);" onclick="goToHome()">Home</a>
       <a class="menuPage" id="Bio" href="javascript:void(0);" onclick="goToBio()">Bio</a>
       <a class="menuPage" id="Projects" href="javascript:void(0);" onclick="goToProjects()">Projects</a>
-      <a class="menuPage" id="Work" href="javascript:void(0);" onclick="goToWork()">Work</a>
+      <a class="menuPage" id="Travel" href="javascript:void(0);" onclick="goToTravel()">Travel</a>
       <!--<a class="menuPage" id="NationalParksGallery" href="national-parks-gallery">National Parks Gallery</a>-->
       <a href="javascript:void(0);" class="menuBurger icon" onclick="hamburger()">
         <i class="fa fa-bars"></i>
@@ -560,9 +592,35 @@
                 <i class="fas fa-chevron-down arrow" id="arrow"></i>
             </a>
         </div>
-        <!--<h3 style="text-align: center;">More Projects</h3>-->
     </div>
-    <div id="work" style="height: 100%; background-color: #FFFFFF;">
+    <div id="travel" style="text-align: center; height: auto; position: relative; padding: 50px 10% 75px 10%; background-color: #FFFFFF;">
+        <h1 style="text-align: center;">Travel</h1>
+        <div class="row" style="width: 100%; margin: 0px; padding-left: 7px;">
+          <div class="column">
+            <img src="Arches/DSC_0007-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0008-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0010-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0028.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="Arches/DSC_9950.jpg" style="width:100%">
+            <img src="Arches/DSC_9955.jpg" style="width:100%">
+            <img src="Arches/DSC_9994.jpg" style="width:100%">
+            <img src="Arches/DSC_0546.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="Arches/DSC_0033.jpg" style="width:100%">
+            <img src="Arches/DSC_9933.jpg" style="width:100%">
+            <img src="Arches/DSC_9938.jpg" style="width:100%">
+            <img src="Arches/DSC_0555.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="Arches/DSC_0007-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0008-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0010-1.jpg" style="width:100%">
+            <img src="Arches/DSC_0028.jpg" style="width:100%">
+          </div>
+        </div>
     </div>
 </body>
 
