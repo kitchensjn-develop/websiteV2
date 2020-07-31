@@ -28,7 +28,7 @@ function draw() {
   vertex(0, height);
   for (var x = 0; x <= numberPoints; x++) {
 	  var nx = map(x*width/numberPoints, 0, 1000, frameCount/200+10000, 10+frameCount/200+10000);
-	  var y = (height/2 * noise(nx)) + height*1/4;
+	  var y = (height/2 * noise(nx)) + height*2/7;
 	  vertex(x*width/numberPoints, y);
   }
   vertex(width, height);
