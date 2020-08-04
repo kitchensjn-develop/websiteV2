@@ -303,20 +303,24 @@
         }
         .blog .post .postimg .info {
             padding: 10px;
-            background-color: #FFFFFF;
-            border-radius: 5px;
+            background-color: #333333;
+            border-radius: 0px 0px 5px 5px;
             position: absolute;
             bottom: 0%;
-            left: 0%; 
+            left: 0%;
+            width: 100%;
         }
         .blog .post .postimg .info .title {
             font-weight: bold;
             margin-bottom: 0px;
+            text-align: center;
+            color: #BBBBBB;
         }
         .blog .post .postimg .info .date {
-            color: #333333;
-            margin-bottom: 0px;
             font-size: 15px;
+            text-align: center;
+            color: #BBBBBB;
+            margin-bottom: 10px;
         }
         .blog .post .postimg .info .desc {
             margin: 10px 0px;
@@ -326,20 +330,29 @@
             width: 100%; 
             overflow: hidden;
             text-overflow: ellipsis;
+            color: #BBBBBB;
+        }
+        .blog .post .postimg .info .cat {
+            text-align: center;
         }
         .blog .post .postimg .info .cat .background {
             display: inline-block;
             border-radius: 5px;
-            background-color: #333333;
+            background-color: #BBBBBB;
             margin: 2px 0px;
         }
         .blog .post .postimg .info .cat .background .skill {
-            color: #FFFFFF;
+            color: #333333;
             margin: 3px;
             font-size: 10px;
         }
-        
-        .blog .post:hover .overlay {
+        .blog .post .postimg .overlay {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        .blog .post:hover .postimg .overlay {
             background-color: rgba(51,51,51,0.5);
         }
         
@@ -678,20 +691,20 @@
       <div class="col-md-6 col-lg-6" style="padding: 0px;">
         <div class="post" data-post="kitchens">
           <div class="postimg" style="background-image: url('MarineTardigradesMap.jpg'); height: 400px; width: 100%; border-radius: 5px;">
-            <div class="overlay" style="position: relative; width: 100%; height: 100%; border-radius: 5px;">
-              <div class="info" style="padding: 10px; background-color: #333333; border-radius: 0px 0px 5px 5px; position: absolute; bottom: 0%; left: 0%; width: 100%;">
-                <p class="title" style="text-align: center; color: #BBBBBB;">Animated Website Background</p>
-                <p class="date" style="font-weight: normal; text-align: center; color: #BBBBBB; margin-bottom: 10px;">August 3, 2020</p>
-                <p class="desc" style="color: #BBBBBB;">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background as seen in this animated GIF...</p>
-                <div class="cat" style="text-align: center;">
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">Javascript</p>
+            <div class="overlay">
+              <div class="info">
+                <p class="title">Animated Website Background</p>
+                <p class="date">August 3, 2020</p>
+                <p class="desc">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background as seen in this animated GIF...</p>
+                <div class="cat">
+                  <div class="background">
+                      <p class="skill">Javascript</p>
                   </div>
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">HTML</p>
+                  <div class="background">
+                      <p class="skill">HTML</p>
                   </div>
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">CSS</p>
+                  <div class="background">
+                      <p class="skill">CSS</p>
                   </div>
                 </div>
               </div>
@@ -702,20 +715,20 @@
       <div class="col-md-6 col-lg-6" style="padding: 0px;">
         <div class="post" data-post="kitchens">
           <div class="postimg" style="background-image: url('TopographicMap.png'); height: 400px; width: 100%; border-radius: 5px;">
-            <div class="overlay" style="position: relative; width: 100%; height: 100%; border-radius: 5px;">
-              <div class="info" style="padding: 10px; background-color: #333333; border-radius: 5px; position: absolute; bottom: 0%; left: 0%; width: 100%;"> <!-- box-shadow: 0px 0px 5px 2px #BBBBBB;-->
-                <p class="title" style="text-align: center; color: #BBBBBB;">Animated Website Background</p>
-                <p class="date" style="font-weight: normal; text-align: center; color: #BBBBBB; margin-bottom: 10px;">August 3, 2020</p>
-                <p class="desc" style="color: #BBBBBB;">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background as seen in this animated GIF...</p>
-                <div class="cat" style="text-align: center;">
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">Javascript</p>
+            <div class="overlay">
+              <div class="info">
+                <p class="title">Animated Website Background</p>
+                <p class="date">August 3, 2020</p>
+                <p class="desc">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background as seen in this animated GIF...</p>
+                <div class="cat">
+                  <div class="background">
+                      <p class="skill">Javascript</p>
                   </div>
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">HTML</p>
+                  <div class="background">
+                      <p class="skill">HTML</p>
                   </div>
-                  <div class="background" style="background-color: #BBBBBB;">
-                      <p class="skill" style="color: #333333;">CSS</p>
+                  <div class="background">
+                      <p class="skill">CSS</p>
                   </div>
                 </div>
               </div>
