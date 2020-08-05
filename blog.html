@@ -78,6 +78,20 @@
             display: inline-block;
             padding: 17px 20px;
         }
+        .cat {
+            text-align: left;
+        }
+        .cat .background {
+            display: inline-block;
+            border-radius: 5px;
+            background-color: #333333;
+            margin: 2px 0px;
+        }
+        .cat .background .skill {
+            color: #FFFFFF;
+            margin: 5px;
+            font-size: 15px;
+        }
         
         .topnav {
             position: fixed;
@@ -200,9 +214,19 @@
     <div style="padding: 75px 10% 75px 10%; text-align: center;">
       <h2 style="text-align: left;">Animated Website Background</h2>
       <p style="text-align: left;">August 3, 2020</p>
+      <div class="cat">
+        <div class="background">
+            <p class="skill">Javascript</p>
+        </div>
+        <div class="background">
+            <p class="skill">HTML</p>
+        </div>
+        <div class="background">
+            <p class="skill">CSS</p>
+        </div>
+      </div>
       <img src="AnimatedWebsiteBackground.gif" width="50%" style="min-width: 350px; border-radius: 5px; margin: 25px 0px;">
-      <p style="text-align: justify;">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background. This tutorial only requires access to your preferred text editor and web browser.</p>
-      <p style="text-align: justify;">For those of you who have not heard of p5.js, it is an open source Javascript library targeted towards "artists, designers, educators, and beginners". There are a number of great tutorials on YouTube created by Daniel Shiffman of <a href="https://www.youtube.com/user/shiffman" target="_blank">The Coding Train</a> where he walks you through different visual algorithms and creative uses for the library. I recommend that you check out his channel as well as the <a href="https://p5js.org" target="_blank">official p5.js website</a> for more information about the library.</p>
+      <p style="text-align: justify;">This tutorial walks you through how to use the p5.js Javascript library to create an animated website background. For those of you who have not heard of p5.js, it is an open source Javascript library targeted towards "artists, designers, educators, and beginners". There are a number of great tutorials on YouTube created by Daniel Shiffman of <a href="https://www.youtube.com/user/shiffman" target="_blank">The Coding Train</a> where he walks you through different visual algorithms and creative uses for the library. I recommend that you check out his channel, as well as the <a href="https://p5js.org" target="_blank">official p5.js website</a>, for more information about the library.</p>
     </div>
     <div id="contact" class="contactBar">
         <p class="info infoHide">Pomona, California</p>
