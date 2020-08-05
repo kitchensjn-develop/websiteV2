@@ -63,6 +63,11 @@
         p {
             margin-bottom: 10px;
             font-size: 20px;
+            text-align: justify;
+        }
+        code {
+            background-color: #BBBBBB;
+            color: #333333;
         }
         .contactBar {
             position: fixed;
@@ -226,11 +231,26 @@
         </div>
       </div>
       <img src="AnimatedWebsiteBackground.gif" width="50%" style="min-width: 350px; border-radius: 5px; margin: 25px 0px;">
-      <p style="text-align: justify;">This tutorial walks you through how to use the p5.js JavaScript library to create an animated website background similar to that seen in the GIF above. For those of you who have not heard of p5.js, it is an open source JavaScript library targeted towards "artists, designers, educators, and beginners". There are a number of great tutorials on YouTube created by Daniel Shiffman of <a href="https://www.youtube.com/user/shiffman" target="_blank">The Coding Train</a> where he walks you through different visual algorithms and creative uses for the library. I recommend that you check out his channel, as well as the <a href="https://p5js.org" target="_blank">official p5.js website</a>, for more information about the library.</p>
-      <p style="text-align: justify;">To start off with, you will need to create two files:</p>
+      <p>This tutorial walks you through how to use the p5.js JavaScript library to create an animated website background similar to that seen in the GIF above. For those of you who have not heard of p5.js, it is an open source JavaScript library targeted towards "artists, designers, educators, and beginners". There are a number of great tutorials on YouTube created by Daniel Shiffman of <a href="https://www.youtube.com/user/shiffman" target="_blank">The Coding Train</a> where he walks you through different visual algorithms and creative uses for the library. I recommend that you check out his channel, as well as the <a href="https://p5js.org" target="_blank">official p5.js website</a>, for more information about the library.</p>
+      <p>To start off with, you will need to create a new directory which will contain two files:</p>
       <p style="text-align: left; padding-left: 50px; margin-bottom: 0px;"><code>index.html</code>: containing your webpage structure and content</p>
       <p style="text-align: left; padding-left: 50px;"><code>perlinMountains.js</code>: containing your p5.js (JavaScript) sketch</p>
-      <p style="text-align: justify;">Both files can have different names if you would like, as long as you are consistent when referencing these files throughout the code.</p>
+      <p>Both files can have different names if you would like, as long as you are consistent when referencing these files throughout the code.</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">index.html</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display:block; white-space:pre-wrap; text-align: left;">
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+        
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge">
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1">
+  &lt;script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js">&lt;/script>
+  &lt;script src="https://kit.fontawesome.com/b53b88607b.js" crossorigin="anonymous">&lt;/script>
+  &lt;script language="javascript" type="text/javascript" src="perlinMountains.js">&lt;/script>
+&lt;/head>
+      </code></pre>
+      <p>First, you need to import the JavaScript that we will be using. This code accesses the p5.js library through a CDN so that you do not need it downloaded locally to run. If you plan to display any icons, such as the GitHub and Linkedin icons used in the example, then you will need to import the Font Awesome library. Lastly, include a reference to your p5.js sketch file; because <code>perlinMountains.js</code> is found in the same directory, you can use just the name of the file as the relative path.</p>
     </div>
     <div id="contact" class="contactBar">
         <p class="info infoHide">Pomona, California</p>
