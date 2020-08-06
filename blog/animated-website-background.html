@@ -200,6 +200,16 @@
                 display: none;
             }
         }
+        
+        .postTitle {
+          text-align: left;
+        }
+        .iconLink {
+          color: #333333;
+        }
+        .iconLink:hover {
+          color: #BBBBBB;
+        }
     </style>
 </head>
 
@@ -217,7 +227,12 @@
       </a>
     </div>
     <div style="padding: 75px 10% 75px 10%; text-align: center;">
-      <h2 style="text-align: left;">Animated Website Background</h2>
+      <h2 class="postTitle">
+        Animated Website Background
+        <a class="iconLink" target="_blank" href="https://github.com/kitchensjn">
+          <i class="fab fa-github link" title="GitHub"></i>
+        </a>
+      </h2>
       <p style="text-align: left;">August 3, 2020</p>
       <div class="cat">
         <div class="background">
@@ -268,7 +283,7 @@
       &lt;p class="desc">Environmental Data Scientist & Creative Programmer&lt;/p>
       &lt;div class="links">
         &lt;a target="_blank" href="https://github.com/kitchensjn">
-          &lt;i class="fab fa-github link" title="Github">&lt;/i>
+          &lt;i class="fab fa-github link" title="GitHub">&lt;/i>
         &lt;/a>
         &lt;a target="_blank" href="https://www.linkedin.com/in/james-kitchens-668825b2/">
           &lt;i class="fab fa-linkedin link" title="Linkedin">&lt;/i>
@@ -352,10 +367,88 @@ function setup() {
 }
 
 function draw() {
-
+  background(51);
 }
       </code></pre>
-      <p>Within your sketch, you have two main functions: setup() and draw(). The setup() function is run only once at the start of the code. The draw() function is run with every frame. Objects are drawn to a canvas object (myCanvas), which needs a width and height parameter for creation. These parameters can be any positive integer; as we want the canvas to completely fill our div, we will use the div's width and height when creating the canvas. We can then parent our canvas to the background div element, which means that our sketch will now be drawn within this div. Lastly, with frameRate(60); we are telling the sketch that it should try to run at 60 frames per second.
+      <p>Within your sketch, you have two main functions: setup() and draw(). The setup() function is run only once at the start of the code. The draw() function is run with every frame. Objects are drawn to a canvas object (myCanvas), which needs a width and height parameter for creation. These parameters can be any positive integer; as we want the canvas to completely fill our div, we will use the div's width and height when creating the canvas. We can then parent our canvas to the background div element, which means that our sketch will now be drawn within this div. Lastly, with frameRate(60); we are telling the sketch that it should try to run at 60 frames per second. Inside the draw function, I've set the background color of the canvas to be a dark gray rgba(51, 51, 51, 255).</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">perlinMountains.js</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display: block; white-space: pre-wrap; text-align: left;">
+function draw() {
+  background(51);
+
+  stroke(255);
+  beginShape();
+  for (var x = 0; x <= width; x++) {
+    vertex(x, 250);
+  }
+  endShape();
+}
+      </code></pre>
+      <p>Each set of hills is actually a single shape, or polygon, drawn onto the canvas. Using the stroke() functions, we can set the color of our line. In p5.js, a shape is drawn by stating its vertices in order (either clockwise or counterclockwise). The top left corner of the canvas has coordinates (0, 0) and the bottom right corner has coordinates (width, height). Then we are going to loop through values of x from 0 to the width of the canvas, and draw our line at a height of 250.</p>
+      <p>You can see that this creates a straight line across our canvas; in order to get hills, we need to vary the height of our line. You could go in and manually set the height value of each vertex, but this would be very time consuming. The name of this file is <code>perlinMountains.js</code> because we can use the Perlin noise algorithm to generate noise that can give the appearance of mountains when applied to the height of a line. This is much better than using a random number generator for the height because Perlin noise smoothly transitions from high to low elevations and back again, whereas a random number generator has no such transition. Below is a comparison between 2D random noise versus 2D Perlin noise.</p>
+      <p>Let's modify the current draw() function to implement the Perlin noise algorithm.</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">perlinMountains.js</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display: block; white-space: pre-wrap; text-align: left;">
+function draw() {
+  background(51);
+  
+  stroke(255);
+  beginShape();
+  for (var x = 0; x <= width; x++) {
+    var nx = map(x, 0, 1000, 0, 10);
+    var y = (height/2 * noise(nx)) + height*1/2;
+    vertex(x, y);
+  }
+  endShape();
+}
+      </code></pre>
+      <p>The map() function rescales the x value to a new range; I found scaling down by a factor of 100 to create nice mountains. This line can be modified to change the smoothness of your mountains. The noise() takes in a float number and returns a decimal between 0 and 1. As the seed for the noise() function does not change with each draw loop, the function will always return the same value for a given input. This will be very useful to know later on when we are implementing the animation. We then transformed this value so as to have it in oscillate about the center of the canvas with a maximum amplitude of half the canvas height to prevent it from going outside the canvas window.</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">perlinMountains.js</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display: block; white-space: pre-wrap; text-align: left;">
+function draw() {
+  background(51);
+  
+  stroke(255);
+  beginShape();
+  for (var x = 0; x <= width; x++) {
+	  var nx = map(x, 0, 1000, frameCount/100, 10+frameCount/100);
+	  var y = (height/2 * noise(nx)) + height*1/2;
+	  vertex(x, y);
+  }
+  endShape();
+}
+      </code></pre>
+      <p>To simulate the mountains sliding to the left, we can simply increment our x values over time. frameCount refers to the number of frames since the start of the script. With this addition to the code, at Frame 0, x=0 may correspond to nx=0, but at Frame 1, x=0 will correspond to nx=1/100, and so on until you end the sketch. At the same time, x=1 would have corresponded to nx=1/100 at Frame 0 and nx>1/100 at Frame 1. This gives the appearance that the mountains are sliding to the left over time. I decided to divide frameCount by 100 to slow down this progression.</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">perlinMountains.js</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display: block; white-space: pre-wrap; text-align: left;">
+function draw() {
+  background(51);
+  
+  fill(255,255,255,255);
+  stroke(255);
+  beginShape();
+  vertex(0, height);
+  for (var x = 0; x <= width; x++) {
+    var nx = map(x, 0, 1000, frameCount/100, 10+frameCount/100);
+    var y = (height/2 * noise(nx)) + height*1/2;
+    vertex(x, y);
+  }
+  vertex(width, height);
+  endShape();
+}
+      </code></pre>
+      <p>Lastly, because we want the color of the mountains to be filled in underneath them, we need to include coordinates along the bottom edge of the canvas. Let's set our first point to be the bottom left corner of the canvas (0, height) and our final point to be the bottom right corner of the canvas (width, height). With that, we now have a single set of mountains moving across the bottom half of our website.</p>
+      <p>But there is still major bug in our sketch - what happens when we change the size of our browser window? Currently, the canvas size is set within the setup() function, but this is only run right at the start of the sketch. If you are to change the browser window, the canvas remains the original size, leading to some unintended, ugly formatting.</p>
+      <p style="margin-top: 25px; margin-bottom: -1px; text-align: left;"><code style="border-radius: 5px 5px 0px 0px;">perlinMountains.js</code></p>
+      <pre style="margin-bottom: 25px; padding: 0px 25px; border-radius: 0px 5px 5px 5px;"><code style="display: block; white-space: pre-wrap; text-align: left;">
+function windowResized() {
+  var canvasDiv = document.getElementById('background');
+  resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
+}
+      </code></pre>
+      <p>The p5.js library provides a built-in windowResized() function which "listens" for a change in the size of the browser window. Using this function, you can resize the canvas to fit within the new background div size. Optionally, you may want to include a reference to the windowResized() function within the draw() function as not all events that may change the browser window size trigger the windowResized() function on its own, such as plugging in an external USB mouse while using Safari on a Mac.</p>
+      <p>To add more sets of mountains or shadows behind the mountain ranges, you can replicate the code from the fill() function to endShape() and change these values to alter the color, opacity, height, and sliding speed. I recommend slowing down the sliding speeds of the mountains in the background to create a parallax effect that mimics natural perspective changes.</p>
+      <p>All code used in the post can be found <a href="https://github.com/kitchensjn" target="_blank">HERE</a>. If you enjoyed this tutorial and want to use this code in your own project, give the repository a star on GitHub and fork the project to your own profile. This tutorial just scratches the surface on how you can integrate the p5.js library into websites, so I would love to see what you come up with. If you have any questions, create an Issue for the GitHub repository and I will do my best to help!</p>
     </div>
     <div id="contact" class="contactBar">
         <p class="info infoHide">Pomona, California</p>
